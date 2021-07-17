@@ -2,15 +2,12 @@
   <h1 style="text-align:center">All products</h1>
   <div style="margin:10px 10px 10px 20px">
     <label style="margin-right:10px;font-size:20px;">Select category</label>
-    <select [(ngModel)]="product_category"
-(ngModelChange)="onChange($event)">
-<option [ngValue]="undefined" hidden selected>Select category </option>
-<option value='Premium'>{{prodcat[0].p_category}} </option>
-<option value='Tamilnadu'>{{prodcat[1].p_category}} </option>
-</select>
+    <select [(ngModel)]="product_category" (ngModelChange)="onChange($event)">
+      <option [ngValue]="undefined" hidden selected>Select category </option>
+      <option value="Premium">{{prodcat[0].p_category}} </option>
+      <option value="Tamilnadu">{{prodcat[1].p_category}} </option>
+    </select>
   </div>
-  <div>{{product_category}}</div>
-  <div></div>
   <div fxLayout="row">
     <div fxLayout="row wrap" fxLayoutGap="30px">
       <div fxFlex="30%" *ngFor="let i of products">
@@ -19,26 +16,53 @@
             <mat-card-title>{{i.p_name}}</mat-card-title>
           </mat-card-header>
           <div *ngIf="i.p_name === 'Apple'">
-            <img mat-card-image src="https://images.pexels.com/photos/326005/pexels-photo-326005.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=300" alt="Apple" >
+            <img
+              mat-card-image
+              src="https://images.pexels.com/photos/326005/pexels-photo-326005.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=300"
+              alt="Apple"
+            />
           </div>
           <div *ngIf="i.p_name === 'Mango'">
-            <img mat-card-image src="https://images.pexels.com/photos/7570879/pexels-photo-7570879.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Mango" >
+            <img
+              mat-card-image
+              src="https://images.pexels.com/photos/7570879/pexels-photo-7570879.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Mango"
+            />
           </div>
           <div *ngIf="i.p_name === 'Bananna'">
-            <img mat-card-image src="https://images.pexels.com/photos/4114122/pexels-photo-4114122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Bananna" >
+            <img
+              mat-card-image
+              src="https://images.pexels.com/photos/4114122/pexels-photo-4114122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Bananna"
+            />
           </div>
           <div *ngIf="i.p_name === 'Orange'">
-            <img mat-card-image src="https://images.pexels.com/photos/2912621/pexels-photo-2912621.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Orange" >
+            <img
+              mat-card-image
+              src="https://images.pexels.com/photos/2912621/pexels-photo-2912621.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="Orange"
+            />
           </div>
           <mat-card-content>
             <p>
               Origin : {{i.p_details}}
-            <p>
-            <p>Cost : Rs.{{i.p_cost}}
             </p>
-            Quantity:<input type="number" name="quantity"
-            [(ngModel)]="quantity" placeholder="Enter the quantity">
-            <button style="margin-top:10px;margin-left:80px;" mat-button (click)="confirm(quantity,i.p_name)">Add</button>
+
+            <p></p>
+            <p>Cost : Rs.{{i.p_cost}}</p>
+            Quantity:<input
+              type="number"
+              name="quantity"
+              [(ngModel)]="quantity"
+              placeholder="Enter the quantity"
+            />
+            <button
+              style="margin-top:10px;margin-left:80px;"
+              mat-button
+              (click)="confirm(quantity,i.p_name)"
+            >
+              Add
+            </button>
           </mat-card-content>
         </mat-card>
       </div>
